@@ -30,15 +30,15 @@
             "playerOff": false,
             "children": [
                 {
-                    "name": "Kent Met Rural League A",
+                    "name": "Kent Met/Rural League A",
                     "level": 10
                 },
                 {
-                    "name": "Kent Met Rural League B",
+                    "name": "Kent Met/Rural League B",
                     "level": 11
                 },
                 {
-                    "name": "Kent Met Rural League C",
+                    "name": "Kent Met/Rural League C",
                     "level": 12
                 }
             ],
