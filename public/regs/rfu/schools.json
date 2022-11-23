@@ -1,0 +1,10 @@
+{
+  "parent": "rfu/reg6",
+  "name": "RFU Schools Competition",
+  "replacements": 7,
+  "interchanges": false,
+  "url": "https://www.englandrugby.com//dxdam/15/15ca2f5b-a81f-4928-9257-d93a3d8b6f3f/Schools%20Cup%20Regulations.pdf",
+  "notes": [
+    "Should a fifty-point differential occur at any time during a match, the Referee may end the match and the result at that time will stand, unless both teams are in agreement to continue"
+  ]
+}

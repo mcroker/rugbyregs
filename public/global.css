@@ -33,7 +33,7 @@ tr.reg-fr table tr {
 
 tr.reg-inter table thead,
 tr.reg-fr table thead {
-  background-color: aquamarine;
+  font-weight: bold;
 }
 
 td.label {

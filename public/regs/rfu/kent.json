@@ -4,7 +4,8 @@
         "rfu/men",
         "rfu/women",
         "rfu/youth",
-        "rfu/bucs"
+        "rfu/bucs",
+        "rfu/schools"
     ],
     "children": [
         {

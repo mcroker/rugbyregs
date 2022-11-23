@@ -3,15 +3,13 @@
   "name": "RFU League Competitions (Women 5-)",
   "replacements": 7,
   "notes": [
-    "Score stands if abandoned due to weather once 50 minutes have been played",
-    "At Women’s Level 5 and below, the World Rugby Under 19 Law Variations will apply.",
-    "Game On Principles apply at Women’s League matches at National Challenge 3 and below without further approval"
+    "Score stands if abandoned due to weather once 50 minutes have been played"
   ],
   "children": [
     {
       "name": "RFU Women's Championship 1",
       "level": 2,
-      "refLevel": 8
+      "refLevel": 8      
     },
     {
       "name": "RFU Women's Championship 2",
@@ -27,17 +25,24 @@
       "name": "RFU Women's National Challenge 2",
       "level": 5,
       "refLevel": 11,
-      "gameOn": true
+      "gameOn": true,
+      "notes": [
+        "At Women’s Level 5 and below, the World Rugby Under 19 Law Variations will apply."
+      ]
     },
     {
       "name": "RFU Women's National Challenge 3",
       "level": 6,
       "refLevel": 12,
-      "gameOn": true
+      "gameOn": true,
+      "notes": [
+        "At Women’s Level 5 and below, the World Rugby Under 19 Law Variations will apply.",
+        "Game On Principles apply at Women’s League matches at National Challenge 3 and below without further approval"
+      ]
     },
     {
       "name": "RFU Women's County Chamionship Division 2"
-    } ,
+    },
     {
       "name": "RFU Women's Junior Cup",
       "interchanges": false,

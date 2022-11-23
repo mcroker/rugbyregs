@@ -10,7 +10,7 @@ function loadRegs(regUrl) {
 
 function parseRegCache(reg) {
   if (Array.isArray(reg.children)) {
-    return reg.children.flatMap(child => parseRegCache({ ...reg, children: null, ...child }));
+    return reg.children.flatMap(child => parseRegCache({ ...reg, children: null, ...child, notes: [...(reg.notes || []), ...(child.notes || [])] }));
   } else {
     return reg;
   }
