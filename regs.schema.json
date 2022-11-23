@@ -1,0 +1,155 @@
+{
+    "$id": "regs.schema.json",
+    "title": "Rugby Competition Regulations",
+    "description": "This document holds the details of Rugby Competition Regulations",
+    "type": "object",
+    "properties": {
+        "name": {
+            "description": "Competition name",
+            "type": "string"
+        },
+        "rollingSubs": {
+            "description": "Rolling substitutions are permitted",
+            "type": "boolean"
+        },
+        "replacements": {
+            "description": "Maximum number of replacements in matchday squad",
+            "type": [
+                "number",
+                "string",
+                "boolean"
+            ]
+        },
+        "playerOff": {
+            "description": "Player-Off applies in the event of uncontested scrums",
+            "type": "boolean"
+        },
+        "interchanges": {
+            "description": "Maximum number of interchanges (rolling-subs)",
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "description": "Interchange requirements based on number of replacements",
+                        "type": "object",
+                        "properties": {
+                            "replacements": {
+                                "description": "Minimum number of replacments to which row applies",
+                                "type": "number"
+                            },
+                            "interchanges": {
+                                "description": "Maximum number of interchanges (rolling-subs)",
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "replacements",
+                            "interchanges"
+                        ]
+                    }
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ]
+        },
+        "frontRow": {
+            "description": "Requirements for Front-Row players in matchday squad",
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "description": "Front-Row requirement entry based on squad size",
+                        "type": "object",
+                        "properties": {
+                            "squad": {
+                                "description": "Maximum size of squad to which row applies",
+                                "type": "number"
+                            },
+                            "frontRow": {
+                                "description": "Minimum number of Front-Row players in matchday squad",
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "squad",
+                            "frontRow"
+                        ]
+                    }
+                },
+                {
+                    "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                    ]
+                }
+            ]
+        },
+        "url": {
+            "description": "Links to futher reading",
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "description": "Array of URLs",
+                        "type": "string"
+                    }
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "description": "URL",
+                                "type": "string"
+                            },
+                            "text": {
+                                "description": "Text to show",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "url"
+                        ]
+                    }
+                },
+                {
+                    "type": [
+                        "string"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "description": "URL",
+                            "type": "string"
+                        },
+                        "text": {
+                            "description": "Text to show",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "url"
+                    ]
+                }
+            ]
+        },
+        "children": {
+            "type": "array",
+            "items": {
+                "$ref": "#"
+            }
+        }
+    },
+    "required": [
+        "name"
+    ]
+}
