@@ -181,11 +181,17 @@
       document.getElementById('reg_header_' + id).addEventListener("click", function () {
         const header = this;
         const details = this.nextElementSibling;
-        header.classList.toggle("reg-expanded");
-        if (details.style.display === "block") {
-          details.style.display = "none";
+        for (const h of document.getElementsByClassName('reg-header')) {
+          if (h.id !== this.id) {
+            h.classList.remove('reg-expanded');
+            h.nextElementSibling.style.display = 'none';
+          }
+        }
+        header.classList.toggle('reg-expanded');
+        if (details.style.display === 'block') {
+          details.style.display = 'none';
         } else {
-          details.style.display = "block";
+          details.style.display = 'block';
         }
       });
 
