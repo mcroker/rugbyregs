@@ -1,0 +1,44 @@
+{
+  "parent": "wr",
+  "name": "RFU Competitions",
+  "interchanges": [
+    {
+      "replacements": 3,
+      "interchanges": 8
+    },
+    {
+      "replacements": 4,
+      "interchanges": 9
+    },
+    {
+      "replacements": 6,
+      "interchanges": 10
+    },
+    {
+      "replacements": 7,
+      "interchanges": 12
+    }
+  ],
+  "frontRow": [
+    {
+      "squad": 15,
+      "frontRow": 3
+    },
+    {
+      "squad": 18,
+      "frontRow": 4
+    },
+    {
+      "squad": 22,
+      "frontRow": 5
+    }
+  ],
+  "playerOff": true,
+  "gameOn": false,
+  "rollingSubs": true,
+  "extraTime": false,
+  "url": {
+    "url": "https://www.englandrugby.com//dxdam/65/656ceb07-0363-47e3-b247-34f99e49ee28/Regulation%206.pdf",
+    "text": "RFU Regulation 6"
+  }
+}

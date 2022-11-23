@@ -1,0 +1,25 @@
+{
+  "name": "World Rugby Laws",
+  "rollingSubs": false,
+  "replacements": 8,
+  "playerOff": false,
+  "interchanges": 12,
+  "frontRow": [
+    {
+      "squad": 15,
+      "frontRow": 3
+    },
+    {
+      "squad": 18,
+      "frontRow": 4
+    },
+    {
+      "squad": 22,
+      "frontRow": 5
+    },
+    {
+      "squad": 23,
+      "frontRow": 6
+    }
+  ]
+}

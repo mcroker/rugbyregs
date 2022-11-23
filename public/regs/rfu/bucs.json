@@ -1,0 +1,27 @@
+{
+    "name": "BUCS Competitions",
+    "parent": "rfu/reg6",
+    "replacements": 7,
+    "interchanges": false,
+    "url": "https://www.bucs.org.uk/rules-and-regulations/sport/rugby-union.html",
+    "extraTime": "KO Matches only, 2x10m",
+    "notes": [
+        "For Knock-out matches: In the event of a tie after normal time, … there shall be a five minute break. After this break, the teams will change ends and there shall be a period of extra time between the teams of 10 minutes each way, with a one minute interval."
+    ],
+    "children": [
+        {
+            "name": "BUCS Men 2",
+            "level": 9
+        },
+        {
+            "name": "BUCS Men 3",
+            "level": 10
+        },
+        {
+            "name": "BUCS Women 3",
+            "level": 10,
+            "frontRow": false,
+            "playerOff": false
+        }
+    ]
+}

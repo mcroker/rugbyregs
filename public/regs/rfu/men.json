@@ -1,0 +1,26 @@
+{
+  "name": "RFU League Competitions (Men)",
+  "parent": "rfu/reg6",
+  "replacements": 3,
+  "notes": [
+    "Score stands if abandoned due to weather once 60 minutes have been played",
+    "Game On Principles apply at Men’s League matches at Counties League 1 and below (formerly Level 7 and below) provided prior approval of the Organising Committee is obtained"
+  ],
+  "children": [
+    {
+      "name": "RFU Counties 2",
+      "level": 8,
+      "gameOn": "Requires Approval"
+    },
+    {
+      "name": "RFU Counties 3",
+      "level": 9,
+      "gameOn": "Requires Approval"
+    },
+    {
+      "name": "RFU Counties 4",
+      "level": 10,
+      "gameOn": "Requires Approval"
+    }
+  ]
+}

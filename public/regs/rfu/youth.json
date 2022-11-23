@@ -1,0 +1,31 @@
+{
+  "parent": "rfu/reg6",
+  "name": "RFU Youth Competitions",
+  "replacements": 7,
+  "interchanges": false,
+  "children": [
+    {
+      "name": "RFU National U18 Cup Boys",
+      "letel": 8,
+      "url": "https://www.englandrugby.com//dxdam/7c/7cfb6da6-cc80-4699-abe7-5a5479767aa2/Boys'%20Under%2018s%20National%20Cup%20Regulations.pdf",
+      "notes": [
+        "Should a fifty-point differential occur at any time during a match, then the referee may end the match and the result at that time will stand.",
+        "If the match is abandoned solely because of the weather conditions (including bad light) or serious injury to a player when 50 or more minutes have been played, the score at the moment of abandonment shall stand and be deemed the final score in the match…"
+      ]
+    },
+    {
+      "name": "RFU National U18 Cup Girls",
+      "url": "https://www.englandrugby.com//dxdam/c2/c21ed703-166c-4b29-ba28-01af39501ff9/Girls%20Under%2016s%2018s%20National%20Cup%20Regulations%202022.pdf",
+      "notes": [
+        "Should a fifty-point differential occur at any time during a match, then the referee may end the match and the result at that time will stand."
+      ]
+    },
+    {
+      "name": "RFU National U16 Cup Girls",
+      "url": "https://www.englandrugby.com//dxdam/c2/c21ed703-166c-4b29-ba28-01af39501ff9/Girls%20Under%2016s%2018s%20National%20Cup%20Regulations%202022.pdf",
+      "notes": [
+        "Should a fifty-point differential occur at any time during a match, then the referee may end the match and the result at that time will stand."
+      ]
+    }
+  ]
+}

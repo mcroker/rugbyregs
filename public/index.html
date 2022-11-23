@@ -1,89 +1,205 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.14.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.14.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.14.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rugby Regulations</title>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./regfiles.js"></script>
+
+  <link rel="stylesheet" href="./global.css">
+</head>
+
+<body>
+
+  <div id="message">
+    <h2>Regulations</h2>
+    <div id="regs" class="regs-container">
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <script>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+    function insertReg(parentElem, reg) {
+      const id = String(reg.name).replace(" ", '_').toLowerCase();
+      parentElem.insertAdjacentHTML('beforeend', `
+        <div id="reg_${id}" class="reg">
+          <div id="reg_header_${id}" class="reg-header">
+            <p class="reg-name">${reg.name}</p>
+          </div>
+          <div id="reg_details_${id}" class="reg-details">
+            <table>
+              <tbody id="reg_table_${id}">
+                
+              </tbody>
+            </table>
+            <div id="reg_notes_${id}"></div>
+            <div id="reg_link_${id}"></div>
+          </div>
+        </div>
+      `);
+
+      const tableElem = document.getElementById(`reg_table_${id}`);
+
+      // Level
+      if ("number" === typeof reg.level || "string" === typeof reg.level) {
+        tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-repl"><td class="label">Level</td><td id="reg_level_${id}"><td></tr>`);
+        const levelElem = document.getElementById(`reg_level_${id}`);
+        levelElem.innerText = reg.level;
+      }
+
+      // Soc. Level
+      if ("number" === typeof reg.refLevel || "string" === typeof reg.refLevel && reg.refLevel !== reg.level) {
+        tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-repl"><td class="label">Soc. Level</td><td id="reg_reflevel_${id}"><td></tr>`);
+        const reflevelEnum = document.getElementById(`reg_reflevel_${id}`);
+        reflevelEnum.innerText = reg.refLevel;
+      }
+
+      // Replacements
+      tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-repl"><td class="label">Replacements</td><td id="reg_repl_${id}"><td></tr>`);
+      const replElem = document.getElementById(`reg_repl_${id}`);
+      if ("number" === typeof reg.replacements || "string" === typeof reg.replacements) {
+        replElem.innerText = reg.replacements;
+      } else if (null === reg.replacements || false === reg.replacements) {
+        replElem.innerText = 'Unlimited';
+      }
+
+      // Interchanges
+      tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-inter"><td class="label">Interchanges</td><td id="reg_inter_${id}"><td></tr>`);
+      const interElem = document.getElementById(`reg_inter_${id}`);
+      if ("number" === typeof reg.interchanges || "string" === typeof reg.interchanges) {
+        interElem.innerText = reg.interchanges;
+      } else if (null === reg.interchanges || false === reg.interchanges) {
+        interElem.innerText = 'Unlimited';
+      } else if (Array.isArray(reg.interchanges)) {
+        interElem.innerHTML = `
+          <table>
+            <thead>
+              <tr><td>Replacements</td><td>Interchanges</td></tr>
+            </thead>
+            <tbody id="reg_inter2_${id}">
+            </tbody>
+          </table>`;
+        const inter2Elem = document.getElementById(`reg_inter2_${id}`);
+        let prior = 0;
+        for (r of reg.interchanges.sort((a, b) => (a.replacements < b.replacements) ? -1 : 1)) {
+          if (prior === r.replacements) {
+            inter2Elem.insertAdjacentHTML('beforeend', `<tr><td>${r.replacements}</td><td>${r.interchanges}</td></tr>`);
+          } else {
+            inter2Elem.insertAdjacentHTML('beforeend', `<tr><td>${prior} - ${r.replacements}</td><td>${r.interchanges}</td></tr>`);
+          }
+          prior = r.replacements + 1;
+        }
+      }
+
+      // Front Row
+      tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-fr"><td class="label">Front-Row</td><td id="reg_fr_${id}"><td></tr>`);
+      const frElem = document.getElementById(`reg_fr_${id}`);
+      if ("number" === typeof reg.frontRow || "string" === typeof reg.frontRow) {
+        frElem.innerText = reg.frontRow;
+      } else if (null === reg.frontRow || false == reg.frontRow) {
+        frElem.innerText = 'No Requirement';
+      } else if (Array.isArray(reg.frontRow)) {
+        frElem.innerHTML = `
+          <table>
+            <thead>
+              <tr><td>Squad Size</td><td>Required</td></tr>
+            </thead>
+            <tbody id="reg_fr2_${id}">
+            </tbody>
+          </table>`;
+        const fr2Elem = document.getElementById(`reg_fr2_${id}`);
+        let prior = 0;
+        for (r of reg.frontRow.sort((a, b) => (a.squad < b.squad) ? -1 : 1)) {
+          if (prior === r.squad) {
+            fr2Elem.insertAdjacentHTML('beforeend', `<tr><td>${r.squad}</td><td>${r.frontRow}</td></tr>`);
+          } else {
+            fr2Elem.insertAdjacentHTML('beforeend', `<tr><td>${prior} - ${r.squad}</td><td>${r.frontRow}</td></tr>`);
+          }
+          prior = r.squad + 1;
+        }
+      }
+
+      // Player Off
+      tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-playeroff"><td class="label">Player-off</td><td id="reg_playeroff_${id}"><td></tr>`);
+      const playerOffElem = document.getElementById(`reg_playeroff_${id}`);
+      if ("string" === typeof reg.playerOff) {
+        playerOffElem.innerHTML = reg.playerOff;
+      } else if (reg.playerOff) {
+        playerOffElem.innerHTML = 'Yes';
+      } else {
+        playerOffElem.innerHTML = 'No';
+      }
+
+      // Extra Time
+      tableElem.insertAdjacentHTML('beforeend', `<tr class="reg-extra"><td class="label">Extra-time</td><td id="reg_extra_${id}"><td></tr>`);
+      const extraElem = document.getElementById(`reg_extra_${id}`);
+      if ("string" === typeof reg.extraTime) {
+        extraElem.innerHTML = reg.extraTime;
+      } else if (reg.extraTime) {
+        extraElem.innerHTML = 'Yes';
+      } else {
+        extraElem.innerHTML = 'No';
+      }
+
+      // URL
+      const linkElem = document.getElementById(`reg_link_${id}`);
+      if ("string" === typeof reg.url) {
+        linkElem.innerHTML = `<a href="${reg.url}" target="_blank">Link</a>`;
+      } else if (Array.isArray(reg.url)) {
+        linkElem.insertAdjacentHTML('beforeend', `Links<ul>`);
+        for (const url of reg.url) {
+          linkElem.insertAdjacentHTML('beforeend', `<li><a href="${url.url}" target="_blank">${url.text || url.url}</a></li>`);
+        }
+        linkElem.insertAdjacentHTML('beforeend', `</ul>`);
+      } else if (undefined !== reg.url.url) {
+        linkElem.innerHTML = `<a href="${reg.url.url}" target="_blank">${reg.url.text || reg.url.url}</a>`;
+      }
+
+      // Notes
+      const notesElem = document.getElementById(`reg_notes_${id}`);
+      if ("string" === typeof reg.notes) {
+        notesElem.innerHTML = reg.notes;
+      } else if (Array.isArray(reg.notes)) {
+        for (n of reg.notes) {
+          notesElem.insertAdjacentHTML('beforeend', `<p>${n}</p>`);
+        }
+      }
+
+      // Accordian
+      document.getElementById('reg_header_' + id).addEventListener("click", function () {
+        const header = this;
+        const details = this.nextElementSibling;
+        header.classList.toggle("reg-expanded");
+        if (details.style.display === "block") {
+          details.style.display = "none";
+        } else {
+          details.style.display = "block";
         }
       });
-    </script>
-  </body>
+
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      /*
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      */
+
+      loadRegs('rfu/kent')
+        .then(regs => {
+          const parentElem = document.getElementById("regs");
+          for (const reg of regs.sort((a, b) => (a.name < b.name) ? -1 : 1)) {
+            insertReg(parentElem, reg);
+          }
+        });
+
+    });
+
+  </script>
+</body>
+
 </html>

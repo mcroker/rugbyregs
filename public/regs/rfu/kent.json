@@ -1,0 +1,95 @@
+{
+    "name": "Kent RFU Competitions",
+    "load": [
+        "rfu/men",
+        "rfu/women",
+        "rfu/youth",
+        "rfu/bucs"
+    ],
+    "children": [
+        {
+            "name": "Kent Spitfire Gold Vets",
+            "interchanges": false,
+            "replacements": false,
+            "frontRow": 3,
+            "extraTime": false,
+            "playerOff": true,
+            "url": "https://www.kent-rugby.org/wp-content/uploads/2017/10/Spitfire-Gold-Veterans-Competition-2017.pdf",
+            "notes": [
+                "No players under 35",
+                "Maximum of 5 players in 35-39 age group on the field at any time."
+            ]
+        },
+        {
+            "name": "Kent Met Rural League",
+            "interchanges": false,
+            "replacements": 3,
+            "frontRow": 3,
+            "extraTime": false,
+            "playerOff": false,
+            "children": [
+                {
+                    "name": "Kent Met Rural League A",
+                    "level": 10
+                },
+                {
+                    "name": "Kent Met Rural League B",
+                    "level": 11
+                },
+                {
+                    "name": "Kent Met Rural League C",
+                    "level": 12
+                }
+            ],
+            "url": [
+                {
+                    "url": "https://www.kent-rugby.org/wp-content/uploads/2022/09/2223-Shepherd-Neame-Kent-Merit-Leagues-Playing-Regulations.pdf",
+                    "text": "League Regulations"
+                },
+                {
+                    "url": "https://www.kent-rugby.org/wp-content/uploads/2017/10/adjusted-Front-Row.pdf",
+                    "text": "Front Row Points Chart"
+                }
+            ],
+            "notes": [
+                "Teams may agree to more than 3 subs.",
+                "No replacements are permitted to take to the field if the opposition has less than 15 players available."
+            ]
+        },
+        {
+            "name": "Kent Cup",
+            "interchanges": 9,
+            "replacements": 4,
+            "frontRow": 5,
+            "extraTime": "If #tries equal, 2x10 min",
+            "playerOff": false,
+            "url": "https://www.kent-rugby.org/wp-content/uploads/2021/09/Competition-Rules-21-22-.pdf",
+            "notes": [
+                "If at the end of normal playing time the scores are equal, the team which has scored the greater number of tries shall be deemed the winner. If the number of tries is equal, the teams will change ends and continue playing a further 10 minutes each way.",
+                "In the case of the Final, if after forty minutes play each way the scores are level there shall be an immediate period of extra time of ten minutes each way with a one minute interval."
+            ]
+        },
+        {
+            "name": "Kent Youth Competitons",
+            "replacements": 7,
+            "frontRow": false,
+            "extraTime": false,
+            "playerOff": false,
+            "interchanges": false,
+            "url": "https://www.kent-rugby.org/wp-content/uploads/2022/10/2022-23-Competition-rules.docx",
+            "children": [
+                {
+                    "name": "Kent Youth Competition - U12",
+                    "replacements": "6 (12 on pitch)"
+                },
+                {
+                    "name": "Kent Youth Competition - U13",
+                    "replacements": "6 (13 on pitch)"
+                },
+                {
+                    "name": "Kent Youth Competition - U14+"
+                }
+            ]
+        }
+    ]
+}
