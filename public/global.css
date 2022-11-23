@@ -18,6 +18,7 @@ body {
 }
 
 .reg-expanded {
+  font-weight: bold;
   background-color: gold;
 }
 
