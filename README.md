@@ -1,5 +1,8 @@
 # rugbyregs
 
+## demo site
+https://rugbyregs.web.app
+
 ## json format
 Each competition is described by a JSON structure as defined below.
 Competitions inherit from all parent nodes unless explicity overridded (e.g. with null),
