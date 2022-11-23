@@ -216,6 +216,7 @@
             parentElem.style.display = "block";
           })
           .catch(() => {
+            alert("Regulation not found");
             loadingElem.style.display = "none";
             menuElem.style.display = "block";
           });
