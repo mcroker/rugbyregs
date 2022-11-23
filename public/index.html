@@ -7,16 +7,25 @@
   <title>Rugby Regulations</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="./regfiles.js"></script>
+  <script src="/regfiles.js"></script>
 
-  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="/global.css">
 </head>
 
 <body>
 
   <div id="message">
     <h2>Regulations</h2>
-    <div id="regs" class="regs-container">
+    <div id="loading">
+      Loading
+    </div>
+    <div style="display:none;" id="menu">
+      <h1>Menu</h1>
+      <ul>
+        <li><a href="/rfu/kent">Kent (KSRFUR)</a></li>
+      </ul>
+    </div>
+    <div style="display:none;" id="regs" class="regs-container">
     </div>
   </div>
 
@@ -189,14 +198,28 @@
       });
       */
 
-      loadRegs('rfu/kent')
-        .then(regs => {
-          const parentElem = document.getElementById("regs");
-          for (const reg of regs.sort((a, b) => (a.name < b.name) ? -1 : 1)) {
-            insertReg(parentElem, reg);
-          }
-        });
+      const parentElem = document.getElementById("regs");
+      const loadingElem = document.getElementById("loading");
+      const menuElem = document.getElementById("menu");
 
+      let target = String(window.location.pathname).substring(1);
+      if (target === '') {
+        loadingElem.style.display = "none";
+        menuElem.style.display = "block";
+      } else {
+        loadRegs(target)
+          .then(regs => {
+            for (const reg of regs.sort((a, b) => (a.name < b.name) ? -1 : 1)) {
+              insertReg(parentElem, reg);
+            }
+            loadingElem.style.display = "none";
+            parentElem.style.display = "block";
+          })
+          .catch(() => {
+            loadingElem.style.display = "none";
+            menuElem.style.display = "block";
+          });
+      }
     });
 
   </script>

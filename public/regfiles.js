@@ -1,10 +1,12 @@
 let regcache = {};
 
 function loadRegs(regUrl) {
-  return new Promise(function (resolve) {
-    loadRegFile(regUrl).then(function () {
-      resolve(parseRegCache(regcache['wr']));
-    });
+  return new Promise(function (resolve, reject) {
+    loadRegFile(regUrl)
+      .then(function () {
+        resolve(parseRegCache(regcache['wr']));
+      })
+      .catch(reject);
   });
 }
 
@@ -17,9 +19,9 @@ function parseRegCache(reg) {
 }
 
 function loadRegFile(regUrl) {
-  return new Promise(function (resolve) {
+  return new Promise(function (resolve, reject) {
     if (undefined === regcache[regUrl]) {
-      $.getJSON(`./regs/${regUrl}.json`, function (data) {
+      $.getJSON(`/regs/${regUrl}.json`, function (data) {
         const load = (Array.isArray(data.load)) ? data.load : [];
         if ("string" === typeof data.parent) {
           load.push(data.parent);
@@ -39,7 +41,11 @@ function loadRegFile(regUrl) {
             }
             resolve();
           });
-      });
+      })
+        .fail(() => {
+          console.error(`Could not retrieve reg file ${regUrl}`);
+          reject()
+        });
     } else {
       resolve();
     }
